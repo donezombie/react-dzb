@@ -1,7 +1,7 @@
-@import "./variables/variables";
-@import "./mixins/mixins";
+@import './_var';
+@import './_mixins';
+@import './_ie-fix';
+@import './_custom';
 
-@import "./_custom";
-
-// Pages
-@import "./pages/homepage";
+@import './pages/header.scss';
+@import './pages/footer.scss';
