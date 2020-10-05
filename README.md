@@ -7,7 +7,6 @@
 
 ## Packges use in template:
 
-- TypeScript
 - React.js
 - React-router-dom
 - SCSS
@@ -22,7 +21,7 @@
 - Immer
 
 ## Version with typescript:
-[Template-TS](https://github.com/donezombie/react-boider-plate-ts)
+[Click here to go to Template-TS](https://github.com/donezombie/react-boider-plate-ts)
 
 ## How to use
 
