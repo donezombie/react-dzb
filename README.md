@@ -22,9 +22,7 @@
 - Immer
 
 ## Version with typescript:
-```javascript
-https://github.com/donezombie/react-boider-plate-ts
-```
+[Template-TS](https://github.com/donezombie/react-boider-plate-ts)
 
 ## How to use
 
