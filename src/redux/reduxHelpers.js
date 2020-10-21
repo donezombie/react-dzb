@@ -1,5 +1,3 @@
-import { Action } from "interfaces/redux";
-
 // use for call back
 export const onSagaSuccess = (action, data, next) => {
   if (action.payload.callbacks) {

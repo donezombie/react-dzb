@@ -1,5 +1,3 @@
-
-import { Action } from 'interfaces/redux';
 import { takeLatest, put } from 'redux-saga/effects';
 import * as types from 'redux/types';
 
