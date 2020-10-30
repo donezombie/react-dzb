@@ -1,4 +1,3 @@
-import ReducerInterface from 'interfaces/reducerInterface';
 import produce from 'immer';
 import * as types from 'redux/types';
 
