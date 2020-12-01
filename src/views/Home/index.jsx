@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getTodosList } from "redux/modules/todos";
-import { GetListTodoSelector } from "redux/selectors";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getTodosList } from 'redux/modules/todos';
+import { GetListTodoSelector } from 'redux/selectors';
 
 const HomePage = (props) => {
   const dispatch = useDispatch();
@@ -9,21 +9,21 @@ const HomePage = (props) => {
   const { data: listTodo, loading } = todoList;
 
   useEffect(() => {
-    dispatch(getTodosList({
-      onSuccess: (response) => {
-        console.log(response);
-      },
-      onFailed: (error) => {
-        console.log(error)
-      }
-    }));
+    dispatch(
+      getTodosList({
+        onSuccess: (response) => {
+          console.log(response);
+        },
+        onFailed: (error) => {
+          console.log(error);
+        },
+      }),
+    );
   }, [dispatch]);
 
   // Render
   if (loading) {
-    return (
-      <div>Loading...</div>
-    )
+    return <div>Loading...</div>;
   }
 
   return (
@@ -36,6 +36,6 @@ const HomePage = (props) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 export default HomePage;

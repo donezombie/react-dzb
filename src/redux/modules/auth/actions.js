@@ -5,5 +5,5 @@ export const login = (username, password) => ({
   payload: {
     username,
     password,
-  }
+  },
 });

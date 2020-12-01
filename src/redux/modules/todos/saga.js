@@ -7,11 +7,7 @@ import { getTodosListSuccess } from './actions';
 function* getTodosListSaga(action) {
   try {
     const response = yield TodosServices.getTodos();
-    onSagaSuccess(
-      action,
-      response,
-      yield put(getTodosListSuccess(response.data))
-    );
+    onSagaSuccess(action, response, yield put(getTodosListSuccess(response.data)));
   } catch (error) {
     yield put({ type: types.REQUEST_LIST_TODOS_FAILED, error });
   }

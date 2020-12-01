@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useFormikContext } from "formik";
+import { useEffect } from 'react';
+import { useFormikContext } from 'formik';
 
 const FocusError = () => {
   const { errors, isSubmitting, isValidating, isValid } = useFormikContext();
@@ -16,59 +16,57 @@ const FocusError = () => {
               const selectorFieldArray = `[name*="${keys[0]}"]`;
               const errorElementFieldArray = document.querySelector(selectorFieldArray);
               if (errorElementFieldArray) {
-                errorElementFieldArray.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
+                errorElementFieldArray.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
                 errorElementFieldArray.focus({
-                  preventScroll: true
+                  preventScroll: true,
                 });
               }
             }, 0);
-  
+
             return;
           }
-  
+
           const selector = `[name*="${keys[0]}"]`;
           const errorElement = document.querySelector(selector);
-          
+
           if (errorElement) {
             const name = errorElement.getAttribute('name');
             idError = document.querySelector(`[id='${name}']`);
-  
+
             // For element hidden / select
             const errorElementRect = errorElement.getBoundingClientRect();
-  
+
             // Always get the final modal in case nest modal.
-            const modalElement = document.querySelectorAll(".modal")[
-              document.querySelectorAll(".modal").length - 1
-            ];
-  
+            const modalElement = document.querySelectorAll('.modal')[document.querySelectorAll('.modal').length - 1];
+
             // In case modal / dialog
             if (modalElement) {
               const modalElementRect = modalElement.getBoundingClientRect();
               const offset = errorElementRect.top - modalElementRect.top;
               modalElement.scrollTo({
                 top: offset - 100,
-                behavior: "smooth"
+                behavior: 'smooth',
               });
               errorElement.focus({
-                preventScroll: true
+                preventScroll: true,
               });
             } else {
               if (idError) {
-                idError.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" })
+                idError.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
                 idError.focus({
-                  preventScroll: true
-                })
+                  preventScroll: true,
+                });
               } else {
-                errorElement.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
+                errorElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
                 errorElement.focus({
-                  preventScroll: true
+                  preventScroll: true,
                 });
               }
             }
           }
         }
       }
-    }
+    };
 
     checkErrorAndScroll();
     // eslint-disable-next-line react-hooks/exhaustive-deps

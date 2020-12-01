@@ -7,7 +7,7 @@ function* login({ payload }) {
     if (username === 'don' && password === 'don') {
       yield put({ type: types.REQUEST_LOGIN_SUCCESS });
     } else {
-      yield put({ type: types.REQUEST_LOGIN_FAILED });  
+      yield put({ type: types.REQUEST_LOGIN_FAILED });
     }
   } catch (error) {
     yield put({ type: types.REQUEST_LOGIN_FAILED, error });
