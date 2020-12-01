@@ -1,0 +1,64 @@
+{
+  "root": true,
+  "extends": [
+    "react-app",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "prettier/react"
+  ],
+  "plugins": ["jsx-a11y", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "rules": {
+    "require-yield": "warn",
+    "react/jsx-key": "error",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "@typescript-eslint/no-angle-bracket-type-assertion": "off",
+    "react/no-direct-mutation-state": "error",
+    "prefer-const": "warn",
+    "no-var": "warn",
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "useRecoilCallback"
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./jsconfig.json"
+      },
+      "plugins": ["@typescript-eslint"],
+      "extends": ["prettier/@typescript-eslint"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ],
+  "globals": {
+    "page": true,
+    "browser": true,
+    "context": true
+  }
+}
