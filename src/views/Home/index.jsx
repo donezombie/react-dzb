@@ -18,14 +18,14 @@ const HomePage = (props) => {
 
   return (
     <div>
-      {/* <button
+      <button
         type="button"
         onClick={() => {
-          setNumber(number + 1);
+          refetch();
         }}
       >
         Stress test useSafeEffect
-      </button> */}
+      </button>
       <button onClick={onLogout}>Logout</button>
       {loading ? (
         'Loading ...'
