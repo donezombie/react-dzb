@@ -24,6 +24,14 @@ class Services {
     this.axios.interceptors.request.eject(this.interceptors);
   }
 
+  source() {
+    return this.axios.CancelToken.source();
+  }
+
+  isCancel(error) {
+    return this.axios.isCancel(error);
+  }
+
   get(...arg) {
     return this.axios.get(...arg);
   }

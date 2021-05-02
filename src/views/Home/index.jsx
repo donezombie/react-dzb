@@ -1,40 +1,45 @@
-import React, { useEffect } from 'react';
+import useGetListTodos from 'hooks/todos/useGetListTodos';
+import React, { useState } from 'react';
+import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
-import { getTodosList } from 'redux/modules/todos';
-import { GetListTodoSelector } from 'redux/selectors';
+import { logout } from 'redux/modules/auth';
 
 const HomePage = (props) => {
   const dispatch = useDispatch();
-  const todoList = GetListTodoSelector();
-  const { data: listTodo, loading } = todoList;
+  const [number, setNumber] = useState(0);
+  const [data, loading, error, refetch] = useGetListTodos(number);
 
-  useEffect(() => {
-    dispatch(
-      getTodosList({
-        onSuccess: (response) => {
-          console.log(response);
-        },
-        onFailed: (error) => {
-          console.log(error);
-        },
-      }),
-    );
-  }, [dispatch]);
+  //! Function
+  const onLogout = () => {
+    dispatch(logout());
+  };
 
-  // Render
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  //! Render
 
   return (
     <div>
-      List Todo
-      <hr />
-      {listTodo.map((el) => (
-        <div key={el.id}>
-          {el.id} - {el.title}
-        </div>
-      ))}
+      {/* <button
+        type="button"
+        onClick={() => {
+          setNumber(number + 1);
+        }}
+      >
+        Stress test useSafeEffect
+      </button> */}
+      <button onClick={onLogout}>Logout</button>
+      {loading ? (
+        'Loading ...'
+      ) : (
+        <Fragment>
+          <h3>List Todo</h3>
+          <hr />
+          {data.map((el) => (
+            <div key={el.id}>
+              {el.id} - {el.title}
+            </div>
+          ))}
+        </Fragment>
+      )}
     </div>
   );
 };

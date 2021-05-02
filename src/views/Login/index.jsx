@@ -6,6 +6,7 @@ import InputField from 'components/CustomField/InputField';
 import { login } from 'redux/modules/auth';
 import { GetAuthSelector } from 'redux/selectors/auth';
 import { Redirect } from 'react-router-dom';
+import { RouteBase } from 'constants/routeUrl';
 
 const LoginPage = (props) => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const LoginPage = (props) => {
   const { isLogin } = auth;
 
   if (isLogin) {
-    return <Redirect to="/" />;
+    return <Redirect to={RouteBase.Home} />;
   }
 
   return (

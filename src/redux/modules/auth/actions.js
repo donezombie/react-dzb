@@ -7,3 +7,11 @@ export const login = (username, password) => ({
     password,
   },
 });
+
+export const checkAuth = () => ({
+  type: types.REQUEST_CHECK_AUTH,
+});
+
+export const logout = () => ({
+  type: types.REQUEST_LOGOUT,
+});

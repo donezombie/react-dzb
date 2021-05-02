@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './scss/styles.scss';
 import SecureRoute from 'routes/SecureRoute';
 import PrivateRoute from 'components/PrivateRoute';
 import { RouteBase } from 'constants/routeUrl';
+import { checkAuth } from 'redux/modules/auth';
 import LoginPage from 'views/Login';
 
 const App = () => {
-  // RENDER
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
+
+  //! Render
   return (
     <Router>
       <Switch>
