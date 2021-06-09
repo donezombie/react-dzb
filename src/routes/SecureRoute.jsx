@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import DefaultLayout from 'layout/DefaultLayout';
 
-import routes from '.';
+import routes from './routes';
 
 export const SecureRoute = (props) => {
   return (

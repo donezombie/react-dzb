@@ -14,14 +14,14 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, []);
+  }, [dispatch]);
 
   //! Render
   return (
     <Router>
       <Switch>
         <Route path={RouteBase.Login} exact component={LoginPage} />
-        <PrivateRoute path="/" component={SecureRoute} />
+        <PrivateRoute path={RouteBase.Home} component={SecureRoute} />
       </Switch>
     </Router>
   );

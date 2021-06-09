@@ -19,7 +19,7 @@ function* login({ payload }) {
 
 function* logout() {
   try {
-    authServices.clearUserLocalStorage();
+    yield authServices.clearUserLocalStorage();
     window.location.reload();
   } catch (error) {}
 }

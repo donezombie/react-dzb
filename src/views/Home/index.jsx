@@ -1,13 +1,11 @@
+import EachTodo from 'components/EachTodo';
 import useGetListTodos from 'hooks/todos/useGetListTodos';
-import React, { useState } from 'react';
-import { Fragment } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/modules/auth';
-
 const HomePage = (props) => {
   const dispatch = useDispatch();
-  const [number, setNumber] = useState(0);
-  const [data, loading, error, refetch] = useGetListTodos(number);
+  const [data, loading, , refetch] = useGetListTodos(0);
 
   //! Function
   const onLogout = () => {
@@ -15,7 +13,6 @@ const HomePage = (props) => {
   };
 
   //! Render
-
   return (
     <div>
       <button
@@ -30,15 +27,13 @@ const HomePage = (props) => {
       {loading ? (
         'Loading ...'
       ) : (
-        <Fragment>
+        <div className="container mx-auto p-3">
           <h3>List Todo</h3>
           <hr />
           {data.map((el) => (
-            <div key={el.id}>
-              {el.id} - {el.title}
-            </div>
+            <EachTodo key={el.id} item={el} />
           ))}
-        </Fragment>
+        </div>
       )}
     </div>
   );
