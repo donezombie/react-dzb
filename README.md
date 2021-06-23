@@ -1,4 +1,4 @@
-<h1 align="center">React + Redux + Redux Saga + Scss + Formik + Prettier + Eslint</h1>
+<h1 align="center">React + Redux + Redux Saga + Scss + Formik + Prettier + Eslint + i18n</h1>
 
 <p align="center">
   <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-v16.13.1-%238DD6F9.svg?logo=React"></a>
@@ -26,6 +26,9 @@
 - Code styles: prettier, eslint
 - Pre-commit: husky
 - Auto format when save prettier
+
+(New update: 23/06/2021)
+- i18n (multi lang)
 
 ## Version with typescript:
 
