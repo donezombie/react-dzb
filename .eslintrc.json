@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": [
-    "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
@@ -16,6 +15,7 @@
     }
   },
   "rules": {
+    "prettier/prettier": "off",
     "require-yield": "warn",
     "react/jsx-key": "error",
     "jsx-a11y/click-events-have-key-events": "off",
@@ -25,13 +25,6 @@
     "prefer-const": "warn",
     "no-var": "warn",
     "react/display-name": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "useRecoilCallback"
-      }
-    ],
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/label-has-for": [
       "error",
