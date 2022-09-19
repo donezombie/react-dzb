@@ -1,20 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Formik, Form, FastField } from 'formik';
 import ErrorFocus from 'components/ErrorFocus';
 import InputField from 'components/CustomField/InputField';
-import { login } from 'redux/modules/auth';
-import { GetAuthSelector } from 'redux/selectors/auth';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { RouteBase } from 'constants/routeUrl';
+import { useAuthentication } from 'providers/AuthenticationProvider';
 
 const LoginPage = (props) => {
-  const dispatch = useDispatch();
-  const auth = GetAuthSelector();
-  const { isLogin } = auth;
+  const { isLogged, login } = useAuthentication();
 
-  if (isLogin) {
-    return <Redirect to={RouteBase.Home} />;
+  if (isLogged) {
+    return <Navigate to={RouteBase.Home} replace />;
   }
 
   return (
@@ -27,7 +23,7 @@ const LoginPage = (props) => {
       }}
       onSubmit={(values) => {
         const { username, password } = values;
-        dispatch(login(username, password));
+        login({ username, password });
       }}
     >
       {(propsFormik) => (

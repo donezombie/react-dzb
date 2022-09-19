@@ -11,8 +11,8 @@ export const copyToClipboard = (text = '') => {
 
 export const filterQueryInHeaderField = (headerField = [], query = {}) => {
   const mapValHeaderField = headerField?.map((el) => el.value);
-  let itemInHeaderField = {};
-  let itemNotInHeaderField = {};
+  const itemInHeaderField = {};
+  const itemNotInHeaderField = {};
   Object.keys(query).forEach((key) => {
     if (mapValHeaderField.includes(query[key])) {
       itemInHeaderField[key] = query[key];

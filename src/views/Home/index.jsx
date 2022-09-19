@@ -1,17 +1,18 @@
 import EachTodo from 'components/EachTodo';
 import useGetListTodos from 'hooks/todos/useGetListTodos';
+import { useAuthentication } from 'providers/AuthenticationProvider';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { logout } from 'redux/modules/auth';
+
 const HomePage = (props) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const { logout } = useAuthentication();
+
   const [data, loading, , refetch] = useGetListTodos(0);
 
   //! Function
   const onLogout = () => {
-    dispatch(logout());
+    logout();
   };
 
   //! Render

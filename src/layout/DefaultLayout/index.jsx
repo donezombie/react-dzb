@@ -3,8 +3,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import routes from 'routes/routes';
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const DefaultLayout = (props) => {
   return (
@@ -12,15 +11,26 @@ const DefaultLayout = (props) => {
       <Header />
       <main className="main-container">
         <Suspense fallback="Loading...">
-          <Switch>
+          <Routes>
             {routes.map((route, idx) => {
-              if (route.isPrivate) {
-                return <PrivateRoute key={idx} path={route.path} exact={route.exact} component={route.component} />;
-              }
-
-              return <Route key={idx} path={route.path} exact={route.exact} component={route.component} />;
+              return (
+                <Route
+                  key={idx}
+                  path={route.path}
+                  exact={route.exact}
+                  element={
+                    route.isPrivateRoute ? (
+                      <PrivateRoute>
+                        <route.component />
+                      </PrivateRoute>
+                    ) : (
+                      <route.component />
+                    )
+                  }
+                />
+              );
             })}
-          </Switch>
+          </Routes>
         </Suspense>
       </main>
       <Footer />

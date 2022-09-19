@@ -1,4 +1,8 @@
-// Variable overrides
-$main-color: rgba(32, 168, 216, 1);
+//! Variable overrides
+:root {
+  --main-color: rgba(32, 168, 216, 1);
+  --black-color: #252525;
+  --white-color: #fff;
 
-$width: 840px;
+  --width: 840px;
+}

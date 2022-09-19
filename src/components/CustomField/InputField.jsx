@@ -32,7 +32,7 @@ const InputField = (props) => {
         value={value}
         placeholder={placeholder}
         disabled={disabled}
-        invalid={invalid || (!!errors[name] && touched[name])}
+        // invalid={invalid || (!!errors[name] && touched[name])}
         onKeyDown={onKeyDown}
       />
       {errors[name] && <div>{errors[name]}</div>}
@@ -43,7 +43,7 @@ const InputField = (props) => {
 InputField.defaultProps = {
   type: 'text',
   tabIndex: '0',
-  invalid: 'false',
+  invalid: false,
 };
 
 export default InputField;

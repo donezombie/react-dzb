@@ -1,14 +1,11 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import * as types from 'redux/types';
-import authServices from 'services/authServices';
-import { isEmpty } from 'lodash';
 
 function* login({ payload }) {
   const { username, password } = payload;
   try {
     if (username === 'don' && password === 'don') {
       yield put({ type: types.REQUEST_LOGIN_SUCCESS });
-      authServices.saveUserLocalStorage({ username, isLogged: true });
     } else {
       yield put({ type: types.REQUEST_LOGIN_FAILED });
     }
@@ -17,18 +14,8 @@ function* login({ payload }) {
   }
 }
 
-function* logout() {
-  try {
-    yield authServices.clearUserLocalStorage();
-    window.location.reload();
-  } catch (error) {}
-}
-
-function* checkAuth() {
-  const dataUser = authServices.getUserLocalStorage();
-  if (!isEmpty(dataUser)) {
-    yield put({ type: types.REQUEST_LOGIN_SUCCESS });
-  }
+function logout() {
+  window.location.reload();
 }
 
 export function* authSaga() {
