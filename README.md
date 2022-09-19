@@ -8,8 +8,8 @@
 
 ## Packages use in template:
 
-- React.js
-- React-router-dom
+- React.js (v18)
+- React-router-dom (v6)
 - SCSS
 
 - Redux
@@ -21,13 +21,9 @@
 - Lodash
 - Immer
 
-(New update: 01/12/2020)
-
 - Code styles: prettier, eslint
 - Pre-commit: husky
 - Auto format when save prettier
-
-(New update: 23/06/2021)
 - i18n (multi lang)
 
 ## Version with typescript:
