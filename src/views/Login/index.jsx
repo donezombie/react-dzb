@@ -5,8 +5,24 @@ import InputField from 'components/CustomField/InputField';
 import { Navigate } from 'react-router-dom';
 import { RouteBase } from 'constants/routeUrl';
 import { useAuthentication } from 'providers/AuthenticationProvider';
+import CommonStyles from 'components/CommonStyles';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles((theme) => {
+  console.log(theme);
+
+  return {
+    form: {
+      padding: 12,
+    },
+    eachRow: {
+      marginBottom: theme.spacing(),
+    },
+  };
+});
 
 const LoginPage = (props) => {
+  const classes = useStyles();
   const { isLogged, login } = useAuthentication();
 
   if (isLogged) {
@@ -27,20 +43,21 @@ const LoginPage = (props) => {
       }}
     >
       {(propsFormik) => (
-        <Form>
+        <Form className={classes.form}>
           <ErrorFocus />
-          <div>username: don & password: don</div>
-          <div>
-            <label htmlFor="username">UserName</label>
-            <FastField component={InputField} name="username" />
+          <div className={classes.eachRow}>
+            <i>Input username: don & password: don</i>
           </div>
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <FastField component={InputField} name="password" type="password" />
+          <div className={classes.eachRow}>
+            <FastField component={InputField} name="username" label="Username" />
           </div>
 
-          <button type="submit">Submit</button>
+          <div className={classes.eachRow}>
+            <FastField component={InputField} name="password" type="password" label="Password" />
+          </div>
+
+          <CommonStyles.Button type="submit">Submit</CommonStyles.Button>
         </Form>
       )}
     </Formik>

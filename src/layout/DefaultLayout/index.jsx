@@ -1,15 +1,29 @@
 import React, { Fragment, Suspense } from 'react';
 import PrivateRoute from 'components/PrivateRoute';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
 import routes from 'routes/routes';
 import { Route, Routes } from 'react-router-dom';
+import LayoutWithDrawerAndAppbar from 'components/LayoutWithDrawerAndAppbar';
+import CommonIcons from 'components/CommonIcons';
+import { RouteBase } from 'constants/routeUrl';
+import Header from 'components/Header';
+
+const leftMenu = [
+  {
+    label: 'Home',
+    icon: CommonIcons.Help,
+    path: RouteBase.Home,
+  },
+  {
+    label: 'Dashboard',
+    icon: CommonIcons.Help,
+    path: RouteBase.Dashboard,
+  },
+];
 
 const DefaultLayout = (props) => {
   return (
     <Fragment>
-      <Header />
-      <main className="main-container">
+      <LayoutWithDrawerAndAppbar header={<Header />} leftMenu={leftMenu}>
         <Suspense fallback="Loading...">
           <Routes>
             {routes.map((route, idx) => {
@@ -32,8 +46,7 @@ const DefaultLayout = (props) => {
             })}
           </Routes>
         </Suspense>
-      </main>
-      <Footer />
+      </LayoutWithDrawerAndAppbar>
     </Fragment>
   );
 };

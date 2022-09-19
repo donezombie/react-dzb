@@ -20,6 +20,5 @@ function logout() {
 
 export function* authSaga() {
   yield takeLatest(types.REQUEST_LOGIN, login);
-  yield takeLatest(types.REQUEST_CHECK_AUTH, checkAuth);
   yield takeLatest(types.REQUEST_LOGOUT, logout);
 }
