@@ -1,0 +1,8 @@
+{
+  "hello": "Hello i18n",
+  
+  "username": "Username",
+  "password": "Password",
+
+  "is_required_field": "{{key}} is required field!"
+}

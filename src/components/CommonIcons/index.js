@@ -18,6 +18,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const CommonIcons = {
   Add,
@@ -38,6 +39,7 @@ const CommonIcons = {
   Checked: CheckCircleOutlineIcon,
   CheckedWithoutCircle: CheckIcon,
   Ticket: LocalActivityOutlinedIcon,
+  Menu: MenuIcon,
 };
 
 export default CommonIcons;

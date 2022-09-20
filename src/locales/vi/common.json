@@ -1,0 +1,8 @@
+{
+  "hello": "Xin chào",
+
+  "username": "Người dùng",
+  "password": "Mật khẩu",
+
+  "is_required_field": "{{key}} là trường bắt buộc!"
+}

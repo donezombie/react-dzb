@@ -42,6 +42,10 @@ class Services {
     return userStorage;
   }
 
+  clearTokenStorage() {
+    window.localStorage.removeItem(KEY_USER);
+  }
+
   removeInterceptors() {
     this.axios.interceptors.request.eject(this.interceptors);
   }

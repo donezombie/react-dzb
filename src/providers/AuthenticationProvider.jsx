@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
     return new Promise(async (resolve, reject) => {
       try {
         setLoggingOut(true);
-        window.localStorage.clear();
+        HttpService.clearTokenStorage();
         window.location.reload();
         resolve();
       } catch (error) {

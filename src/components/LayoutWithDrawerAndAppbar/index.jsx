@@ -10,11 +10,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import CommonIcons from 'components/CommonIcons';
+import PropTypes from 'prop-types';
 
 const drawerWidth = 240;
 
@@ -32,18 +32,33 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
+const propTypes = {
+  topDrawer: PropTypes.node,
+  header: PropTypes.node,
+  leftMenu: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      icon: PropTypes.any,
+      path: PropTypes.string,
+    }),
+  ),
+};
+
 const LayoutWithDrawerAndAppbar = (props) => {
-  const { header, window, children, leftMenu = [] } = props;
+  //! State
+  const { topDrawer, header, window, children, leftMenu = [] } = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  //! Function
   const handleDrawerToggle = React.useCallback(() => {
     setMobileOpen((mobileState) => !mobileState);
   }, []);
 
+  //! Render
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>{topDrawer}</Toolbar>
       <Divider />
       <List>
         {leftMenu.map((item) => (
@@ -80,12 +95,13 @@ const LayoutWithDrawerAndAppbar = (props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <CommonIcons.Menu />
           </IconButton>
 
           {header}
         </Toolbar>
       </AppBar>
+
       <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
@@ -114,6 +130,7 @@ const LayoutWithDrawerAndAppbar = (props) => {
           {drawer}
         </Drawer>
       </Box>
+
       <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
         <Toolbar />
         {children}
@@ -122,4 +139,5 @@ const LayoutWithDrawerAndAppbar = (props) => {
   );
 };
 
+LayoutWithDrawerAndAppbar.propTypes = propTypes;
 export default LayoutWithDrawerAndAppbar;

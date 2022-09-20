@@ -17,7 +17,7 @@ const MessageError = ({
     },
   });
 
-  return <animated.div style={propsAnimated}>{children}</animated.div>;
+  return <animated.span style={propsAnimated}>{children}</animated.span>;
 };
 
 export default React.memo(MessageError);

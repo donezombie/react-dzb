@@ -23,7 +23,7 @@ const leftMenu = [
 const DefaultLayout = (props) => {
   return (
     <Fragment>
-      <LayoutWithDrawerAndAppbar header={<Header />} leftMenu={leftMenu}>
+      <LayoutWithDrawerAndAppbar topDrawer={<div>This is TOP Drawer</div>} header={<Header />} leftMenu={leftMenu}>
         <Suspense fallback="Loading...">
           <Routes>
             {routes.map((route, idx) => {
